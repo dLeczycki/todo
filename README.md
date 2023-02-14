@@ -1,13 +1,13 @@
-### ToDo App
+# ToDo App
 This is my implementation of simple ToDo App.
 ## Preview
 ## How to run
 ## Stack
-# Backend
+### Backend
 - Node
 - Express
 - Typescript
-# Frontend
+### Frontend
 
-# Misc
+### Misc
 - ESLint
