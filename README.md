@@ -8,6 +8,7 @@ This is my implementation of simple ToDo App.
 - Express
 - Typescript
 ### Frontend
-
+- React
+- Typescript
 ### Misc
 - ESLint
