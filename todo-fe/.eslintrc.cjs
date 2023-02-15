@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     indent: ['error', 2],
     quotes: ['error', 'single'],
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    'object-curly-spacing': ['error', 'always']
   }
 };
