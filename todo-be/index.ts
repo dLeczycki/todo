@@ -1,12 +1,12 @@
 import express from 'express';
 import { config } from './config';
-import { todoRouter } from './todo/todo.router';
+import { todoRouter } from './todos/todos.router';
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/todo', todoRouter);
+app.use('/todos', todoRouter);
 
 app.listen(config.port, config.hostname, () => {
   console.log(
