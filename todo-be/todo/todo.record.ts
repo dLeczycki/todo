@@ -1,3 +1,4 @@
+import { castQueryResult, pool } from '../utils/db';
 import { Todo } from '../types';
 
 export class TodoRecord implements Todo {
@@ -9,23 +10,32 @@ export class TodoRecord implements Todo {
     this.title = todo.title;
   }
 
-  static getAll(): Todo[]{
-    throw new Error('Not Implemented');
+  static async getAll(): Promise<Todo[]>{
+    const todos = castQueryResult<Todo>(await pool.query('SELECT * FROM `todos`'));
+    return todos;
   }
 
-  static get(id: string): Todo{
-    throw new Error('Not Implemented');
+  static async get(id: string): Promise<TodoRecord | null>{
+    const todo = castQueryResult<Todo>(await pool.query('SELECT * FROM `todos` WHERE `id` = :id', { id }))[0];
+
+    if(!todo) return null;
+
+    return new TodoRecord(todo);
   }
 
-  add(): Todo{
-    throw new Error('Not Implemented');
+  async add(): Promise<Todo> {
+    await pool.query('INSERT INTO `todos`(`id`,`title`) VALUES (:id, :title)', { id: this.id, title: this.title });
+
+    return this;
   }
 
-  update(todo: Todo): Todo{
-    throw new Error('Not Implemented');
+  async update(): Promise<Todo>{
+    await pool.query('UPDATE `todos` SET `title` = :title WHERE `id` = :id', { id: this.id, title: this.title });
+
+    return this;
   }
 
-  delete(): Todo{
-    throw new Error('Not Implemented');
+  async delete(): Promise<void>{
+    await pool.query('DELETE FROM `todos` WHERE `id` = :id', { id: this.id });
   }
 }

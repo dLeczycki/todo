@@ -4,6 +4,8 @@ import { todoRouter } from './todo/todo.router';
 
 const app = express();
 
+app.use(express.json());
+
 app.use('/todo', todoRouter);
 
 app.listen(config.port, config.hostname, () => {
