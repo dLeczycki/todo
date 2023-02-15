@@ -1,11 +1,10 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import { config } from './config';
+import { todoRouter } from './todo/todo.router';
 
 const app = express();
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello from todo backend');
-});
+app.use('/todo', todoRouter);
 
 app.listen(config.port, config.hostname, () => {
   console.log(
