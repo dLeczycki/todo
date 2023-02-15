@@ -10,5 +10,6 @@ export const config = {
     maxIdle: 10,
     idleTimeout: 60000,
     queueLimit: 0,
+    namedPlaceholders: true,
   }
 };
