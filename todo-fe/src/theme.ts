@@ -9,4 +9,20 @@ export const theme = extendTheme({
       },
     },
   },
+  components: {
+    Heading: {
+      baseStyle: {
+        margin: '.4em auto',
+        color: 'purple.200',
+        textAlign: 'center',
+      },
+    },
+    Box: {
+      variants: {
+        card: {
+          bgColor: 'purple.500',
+        },
+      },
+    },
+  },
 });
