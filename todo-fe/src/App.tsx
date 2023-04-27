@@ -1,11 +1,14 @@
 import { ChakraProvider } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
 import { theme } from './theme';
+import { Router } from './Router';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </ChakraProvider>
   );
 }
